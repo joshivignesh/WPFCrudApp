@@ -1,0 +1,232 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:ctrl="clr-namespace:Presentation.Layer.Control"
+                    xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush  x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+    <SolidColorBrush  x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+    <SolidColorBrush  x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+    <Style  TargetType="{x:Type ctrl:matTextBox}">
+        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="70"/>
+        <!--<Setter Property="MaxHeight" Value="75"/>
+        <Setter Property="MinHeight" Value="75"/>-->
+        <Setter Property="MinWidth" Value="130"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Padding" Value="5,0"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ctrl:matTextBox}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="R1" Height="13*"/>
+                            <RowDefinition Height="67*"/>
+                            <RowDefinition Height="20*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border x:Name="border" Grid.Row="1" CornerRadius="5" BorderBrush="#e0e0e0"
+							BorderThickness="2" Background="{TemplateBinding Background}" SnapsToDevicePixels="false">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition >
+                                        <ColumnDefinition.Style>
+                                            <Style TargetType="ColumnDefinition">
+                                                <Setter Property="Width" Value="50"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HideClearButton, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Value="True">
+                                                        <Setter Property="Width" Value="0"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ColumnDefinition.Style>
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="0" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Template="{DynamicResource ScrollViewerControlTemplate1}"/>
+                                <Button x:Name="ClrButton" IsTabStop="False" Command="{Binding Path=IconCommand, 
+                                                    RelativeSource={RelativeSource AncestorType={x:Type ctrl:matTextBox}}}"  fa5:Awesome.Content="Solid_TimesCircle" Focusable="False" FontSize="18" Background="Transparent" BorderBrush="Transparent" TextElement.FontFamily="pack://application:,,,/FontAwesome5.WPF;component/#FontAwesome" Grid.Column="1" Style="{DynamicResource ButtonStyle1}"/>
+                            </Grid>
+                        </Border>
+
+
+
+                        <TextBlock x:Name="lblHeader" Padding="5,0" Margin="8,0"   Grid.RowSpan="2" Width="Auto" Height="Auto" Foreground="#99000000" 
+                                   TextAlignment="Center" VerticalAlignment="Top" Background="{TemplateBinding Background}"
+                                   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TextHeader, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Style="{DynamicResource LabelStyle1}" RenderTransformOrigin="0.5,0.5">
+
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock x:Name="lblAssist" Padding="5,0" Margin="8,0" Grid.Row="2" Background="White" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=AssistiveText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="Auto" Height="Auto" Foreground="{DynamicResource ucTextBox_Foreground2}"  VerticalAlignment="Center"  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" FontSize="12" Opacity="0" Visibility="Collapsed"/>
+
+                       
+                    </Grid>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsFocused" Value="true">
+                            <Trigger.Setters>
+                                <Setter Property="Foreground" TargetName="lblHeader"  Value="{DynamicResource ucTextBox_Highlight}"/>
+                                <Setter Property="Foreground"  Value="{DynamicResource ucTextBox_Highlight}"/>
+                                <Setter Property="BorderBrush" TargetName="border"  Value="#326cf3"/>
+                            </Trigger.Setters>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="false"/>
+                                <Condition Property="Text" Value=""/>
+                            </MultiTrigger.Conditions>
+
+                            <MultiTrigger.EnterActions>
+                                <RemoveStoryboard BeginStoryboardName="sbFocusedT"/>
+                                <BeginStoryboard x:Name="sbFocusedf">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="lblHeader" From="12" To="16">
+
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lblHeader"  To="24">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+
+                                <RemoveStoryboard BeginStoryboardName="sbFocusedf"/>
+
+                                <BeginStoryboard x:Name="sbFocusedT">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="lblHeader" From="16" To="12">
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lblHeader"  To="0">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+
+                        <Trigger Property="Text" Value="">
+                            <Setter TargetName="ClrButton" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="IsReadOnly" Value="true">
+                            <Setter TargetName="ClrButton" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.50"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsNotValid, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="true">
+                            <Setter TargetName="lblHeader" Property="Foreground" Value="#BF0000"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#BF0000"/>
+                            <Setter Property="Foreground" Value="#BF0000"/>
+                        </DataTrigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DockPanel LastChildFill="true">
+                        <!--<Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10"
+                                    ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                            <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                            </TextBlock>
+                        </Border>-->
+                        <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                            <!--<Border BorderBrush="red" BorderThickness="1" />-->
+                        </AdornedElementPlaceholder>
+
+                        
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                    <Condition Property="IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <ControlTemplate x:Key="ScrollViewerControlTemplate1" TargetType="{x:Type ScrollViewer}">
+        <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Rectangle x:Name="Corner" Grid.Column="1" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Grid.Row="1"/>
+            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" VerticalAlignment="Center" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="0"/>
+            <ScrollBar x:Name="PART_VerticalScrollBar" AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Grid.Row="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}"/>
+            <ScrollBar x:Name="PART_HorizontalScrollBar" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+        </Grid>
+    </ControlTemplate>
+
+    <SolidColorBrush  x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+    <SolidColorBrush  x:Key="Button.Static.Border" Color="#FF707070"/>
+    <SolidColorBrush  x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+    <SolidColorBrush  x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+    <SolidColorBrush  x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+    <SolidColorBrush  x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+    <SolidColorBrush  x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+    <SolidColorBrush  x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+    <SolidColorBrush  x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+    <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="Foreground" Value="#326cf3"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}" >
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="false">
+                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="border" Value="50"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

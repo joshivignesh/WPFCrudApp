@@ -1,0 +1,106 @@
+﻿<Window x:Class="Presentation.Layer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.Layer"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
+         xmlns:ctrl="clr-namespace:Presentation.Layer.Control"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="ThreeDBorderWindow" WindowState="Maximized">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="LightGray" BorderThickness="1"  x:Name="Backbdr"  Background="#F9F9F9"  Margin="0 0 0 2">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="140"/>
+                </Grid.ColumnDefinitions>
+                <ctrl:matTextBox    HorizontalAlignment="Right" Width="450" Height="80"  Background="White" TextHeader="Search"
+                                              FontSize="18" Margin="0 0 150 0"
+                                            Text="{Binding Search,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
+
+                </ctrl:matTextBox>
+               
+                <VirtualizingStackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                   
+
+                    <Button  IsDefault="True" Background="DodgerBlue" Style="{DynamicResource btnButtonStyle}"  Command="{Binding FilterCommand}"    Content="Apply"    Width="120" Height="45"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="5"/>
+
+                    <Button  Background="#EF5454" Style="{DynamicResource btnButtonStyle}" Grid.Row="2" Content="Reset" Command="{Binding ClearFilterCommand}"  Width="120" Height="45"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+
+
+                </VirtualizingStackPanel>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Background="White" CornerRadius="2" Margin="1">
+            <VirtualizingStackPanel Orientation="Horizontal">
+                <Button Background="#198B46" Style="{DynamicResource btnButtonStyle}" Padding="20 0" Margin="10,0,0,0" Content="Add"  
+                                  Command="{Binding CreateCommand}"   HorizontalContentAlignment="Center"
+                                  Width="100" Height="40"  HorizontalAlignment="Left"  
+                                  VerticalAlignment="Center"/>
+
+            </VirtualizingStackPanel>
+        </Border>
+        <Border Grid.Row="2" Background="White" CornerRadius="5" Margin="1">
+            <DataGrid Margin="0" Grid.Row="1"  BorderThickness="0" ItemsSource="{Binding Items}"  
+                     
+                      ScrollViewer.IsDeferredScrollingEnabled="True" VirtualizingPanel.VirtualizationMode="Recycling"  SelectionMode="Single"
+                      HorizontalScrollBarVisibility="Disabled" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                      VerticalScrollBarVisibility="Auto" Height="550" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" GridLinesVisibility="None" CanUserResizeColumns="False">
+                <DataGrid.Columns>
+                   
+
+                    <DataGridTextColumn Header="Username"  IsReadOnly="True" HeaderStyle="{StaticResource HeaderLeftStyle2}"  
+                                        Width="2*"   CellStyle="{StaticResource CellStyle}" Binding="{Binding  Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,FallbackValue=N/A}"/>
+
+                    <DataGridTextColumn Header="Email"  IsReadOnly="True" HeaderStyle="{StaticResource HeaderLeftStyle2}"  
+                                        Width="2*"   CellStyle="{StaticResource CellStyle}" Binding="{Binding  Email,FallbackValue=N/A}"/>
+
+                    <DataGridTextColumn Header="Gender"  IsReadOnly="True" HeaderStyle="{StaticResource HeaderLeftStyle2}"  
+                                        Binding="{Binding Gender,FallbackValue=N/A}" Width="100"  CellStyle="{StaticResource CellStyle-LeftCornerRadious}" 
+                                       />
+                    <DataGridTextColumn Header="Status"  IsReadOnly="True" HeaderStyle="{StaticResource HeaderCenterStyle}"  
+                                        Binding="{Binding Status}" Width="200"  CellStyle="{StaticResource CenterCellStyle}" 
+                                       />
+                   
+
+                    <DataGridTemplateColumn Visibility="Visible" Width="100"  Header="Edit" HeaderStyle="{StaticResource HeaderRightStyle}"  CellStyle="{StaticResource RightCellStyle}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="{x:Null}" BorderBrush="{x:Null}" 
+                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.EditCommand}" 
+                                        CommandParameter="{Binding }">
+                                    <fa5:FontAwesome Icon="Solid_Edit" FontSize="30" Foreground="#3074FD" Focusable="False"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="100"  Header="Remove" HeaderStyle="{StaticResource HeaderRightStyle}"   CellStyle="{StaticResource RightCellStyle}">
+
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button  Background="{x:Null}" BorderBrush="{x:Null}" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.RemoveCommand}" CommandParameter="{Binding }">
+                                    <fa5:FontAwesome Icon="Solid_Trash" FontSize="30" Foreground="Red" Focusable="False"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Border Grid.Row="3" Background="White" CornerRadius="5" Margin="1">
+            <ContentControl   Background="Transparent"  Content="{Binding Pagination,Mode=TwoWay}" />
+        </Border>
+        <UserControl Grid.RowSpan="3" Background="White"  x:Name="uc1" Template="{StaticResource DialogHostTemplate}" 
+                     DataContext="{Binding DialogHost}" />
+    </Grid>
+</Window>

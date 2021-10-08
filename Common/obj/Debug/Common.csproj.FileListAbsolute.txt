@@ -1,0 +1,12 @@
+C:\VS\WPFCrudApp\Common\bin\Debug\Common.dll
+C:\VS\WPFCrudApp\Common\bin\Debug\Common.pdb
+C:\VS\WPFCrudApp\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\VS\WPFCrudApp\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\VS\WPFCrudApp\Common\obj\Debug\Common.dll
+C:\VS\WPFCrudApp\Common\obj\Debug\Common.pdb
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Common\bin\Debug\Common.dll
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Common\bin\Debug\Common.pdb
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Common\obj\Debug\Common.dll
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Common\obj\Debug\Common.pdb
