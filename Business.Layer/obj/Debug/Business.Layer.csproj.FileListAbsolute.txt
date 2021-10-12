@@ -38,6 +38,7 @@ C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\Data.Access.Layer.
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\MaterialDesignColors.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\Service.Layer.dll
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\NLog.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\Newtonsoft.Json.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\System.Net.Http.Formatting.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\Common.pdb
@@ -48,6 +49,7 @@ C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\Service.Layer.dll.
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\MaterialDesignColors.pdb
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\NLog.xml
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\Newtonsoft.Json.xml
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\System.Net.Http.Formatting.xml
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\obj\Debug\Business.Layer.csproj.AssemblyReference.cache
@@ -62,5 +64,3 @@ C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\obj\Debug\Business.Layer.csp
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\obj\Debug\Business.Layer.csproj.CopyComplete
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\obj\Debug\Business.Layer.exe
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\obj\Debug\Business.Layer.pdb
-C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\NLog.dll
-C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Business.Layer\bin\Debug\NLog.xml

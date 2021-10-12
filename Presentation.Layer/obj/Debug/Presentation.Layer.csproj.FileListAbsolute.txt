@@ -66,6 +66,7 @@ C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\MaterialDesign
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Service.Layer.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Data.Access.Layer.dll
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\NLog.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Newtonsoft.Json.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\System.Net.Http.Formatting.dll
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Business.Layer.pdb
@@ -82,6 +83,7 @@ C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Microsoft.Xaml
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Data.Access.Layer.pdb
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Data.Access.Layer.dll.config
+C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\NLog.xml
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\Newtonsoft.Json.xml
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\System.Net.Http.Formatting.xml
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\obj\Debug\Presentation.Layer.csproj.AssemblyReference.cache
@@ -110,5 +112,3 @@ C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\obj\Debug\Presentation.L
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\obj\Debug\Presentation.Layer.csproj.CopyComplete
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\obj\Debug\Presentation.Layer.exe
 C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\obj\Debug\Presentation.Layer.pdb
-C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\NLog.dll
-C:\Vignesh\MyCodeWorkouts\WPFCrudApp\Presentation.Layer\bin\Debug\NLog.xml
